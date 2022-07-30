@@ -1,6 +1,6 @@
 before running the application
 import the file coding Game.postman_collection.json in postman
-
+import the codingGame.sql in database server
 to run the application
 
 [production]
