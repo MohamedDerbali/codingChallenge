@@ -7,6 +7,7 @@ COPY ["package.json", "npm-shrinkwrap.json*", "./"]
 RUN npm install
 RUN npm install tsc
 RUN npm install npx
+RUN npm install graceful-fs --save-dev
 COPY . .
 RUN npm run build
 EXPOSE 3000
