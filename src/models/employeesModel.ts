@@ -1,7 +1,7 @@
 import {Employee} from "../types/employee";
 import {db} from "../utils/mysql.connector";
 import {OkPacket, RowDataPacket} from "mysql2";
-import {AssignEmployee} from "../types/AssignEmployee";
+import {AssignEmployee} from "../types/assignEmployee";
 export const create = (employee: Employee, callback: Function) => {
   const queryString =
     "INSERT INTO employee (name, age, timeSlot) VALUES (?, ?, ?)";
@@ -38,7 +38,7 @@ export const update = (employee: Employee, callback: Function) => {
   db.query(
       queryString,
       [employee.name, employee.age, employee.timeSlot?.uid, employee.uid],
-      (err, result) => {
+      (err) => {
         if (err) {
           callback(err);
         }
@@ -49,7 +49,7 @@ export const update = (employee: Employee, callback: Function) => {
 export const remove = (uid: number, callback: Function) => {
   const queryString = "DELETE From employee WHERE uid=?";
 
-  db.query(queryString, uid, (err, result) => {
+  db.query(queryString, uid, (err) => {
     if (err) {
       callback(err);
     }
@@ -66,7 +66,7 @@ export const assignToSlot = (
   db.query(
       queryString,
       [assignEmployee.timeSlotId, assignEmployee.employeeId],
-      (err, result) => {
+      (err) => {
         if (err) {
           callback(err);
         }

@@ -3,14 +3,14 @@ ENV NODE_ENV=production
 ENV VARIABLE /.env
 WORKDIR /usr/src/app
 COPY ["package.json", "npm-shrinkwrap.json*", "./"]
-# RUN npm install --production --silent && mv node_modules ../
 RUN npm install
 RUN npm install tsc
-RUN npm install npx
-RUN npm install graceful-fs --save-dev
+RUN npm install typescript -g
+RUN npm install @types/node --save-dev
+RUN npm install dotenv
 COPY . .
-RUN npm run build
+RUN npm run compile
 EXPOSE 3000
 RUN chown -R node /usr/src/app
 USER node
-CMD ["node", "dist/app.js"]
+CMD ["npm start", "dist/app.js"]

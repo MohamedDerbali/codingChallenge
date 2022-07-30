@@ -1,14 +1,12 @@
 import "jest";
 import * as express from "express";
-import request from "supertest";
+import * as request from "supertest";
 import {
   StatusCodes,
 } from "http-status-codes";
-import IntegrationHelpers from "../helpers/Integration-helpers";
 describe("status integration tests", () => {
   let app: express.Application;
   beforeAll(async () => {
-    app = await IntegrationHelpers.getApp();
   });
   it("can get time slots", async () => {
     await request(app)
@@ -30,3 +28,4 @@ describe("status integration tests", () => {
         })
         .expect(StatusCodes.OK);
   });
+});

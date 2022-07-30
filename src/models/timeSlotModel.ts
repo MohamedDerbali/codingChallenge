@@ -35,7 +35,7 @@ export const update = (timeSlot: TimeSlot, callback: Function) => {
   db.query(
       queryString,
       [timeSlot.time, timeSlot.description, timeSlot.uid],
-      (err, result) => {
+      (err) => {
         if (err) {
           callback(err);
         }
@@ -46,7 +46,7 @@ export const update = (timeSlot: TimeSlot, callback: Function) => {
 export const remove = (uid: number, callback: Function) => {
   const queryString = "DELETE From timeSlot WHERE uid=?";
 
-  db.query(queryString, uid, (err, result) => {
+  db.query(queryString, uid, (err) => {
     if (err) {
       callback(err);
     }

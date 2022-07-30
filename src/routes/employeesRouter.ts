@@ -1,11 +1,11 @@
-import express, {Request, Response} from "express";
+import {Request, Response, Router} from "express";
 import * as model from "../models/employeesModel";
-import {AssignEmployee} from "../types/AssignEmployee";
+import {AssignEmployee} from "../types/assignEmployee";
 import {Employee} from "../types/employee";
 // eslint-disable-next-line new-cap
-const employeeRouter = express.Router();
+const employeeRouter = Router();
 
-employeeRouter.get("/", async (req: Request, res: Response) => {
+employeeRouter.get("/", async (_req: Request, res: Response) => {
   model.findAll((err: Error, employees: Employee[]) => {
     if (err) {
       return res.status(500).json({errorMessage: err.message});

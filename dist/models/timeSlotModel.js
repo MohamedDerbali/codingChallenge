@@ -28,7 +28,7 @@ const findAll = (callback) => {
 exports.findAll = findAll;
 const update = (timeSlot, callback) => {
     const queryString = "UPDATE timeSlot SET time=?, description=? WHERE uid=?";
-    mysql_connector_1.db.query(queryString, [timeSlot.time, timeSlot.description, timeSlot.uid], (err, result) => {
+    mysql_connector_1.db.query(queryString, [timeSlot.time, timeSlot.description, timeSlot.uid], (err) => {
         if (err) {
             callback(err);
         }
@@ -38,7 +38,7 @@ const update = (timeSlot, callback) => {
 exports.update = update;
 const remove = (uid, callback) => {
     const queryString = "DELETE From timeSlot WHERE uid=?";
-    mysql_connector_1.db.query(queryString, uid, (err, result) => {
+    mysql_connector_1.db.query(queryString, uid, (err) => {
         if (err) {
             callback(err);
         }

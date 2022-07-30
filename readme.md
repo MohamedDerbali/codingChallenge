@@ -12,3 +12,5 @@ npm run dev
 [InDocker]
 docker build -t node_app:1.0.0 .
 
+[Couverage]
+To run the couverage: npm run test

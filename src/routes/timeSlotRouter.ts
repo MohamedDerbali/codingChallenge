@@ -1,10 +1,10 @@
-import express, {Request, Response} from "express";
+import {Request, Response, Router} from "express";
 import * as model from "../models/timeSlotModel";
 import {TimeSlot} from "../types/timeSlot";
 // eslint-disable-next-line new-cap
-const timeSlotRouter = express.Router();
+const timeSlotRouter = Router();
 
-timeSlotRouter.get("/", async (req: Request, res: Response) => {
+timeSlotRouter.get("/", async (_req: Request, res: Response) => {
   model.findAll((err: Error, timeSlots: TimeSlot[]) => {
     if (err) {
       return res.status(500).json({errorMessage: err.message});
@@ -15,7 +15,7 @@ timeSlotRouter.get("/", async (req: Request, res: Response) => {
 
 timeSlotRouter.post("/", async (req: Request, res: Response) => {
   const newtimeSlot: TimeSlot = req.body;
-  model.create(newtimeSlot, (err: Error, uid: number) => {
+  model.create(newtimeSlot, (err: Error) => {
     if (err) {
       return res.status(500).json({message: err.message});
     }

@@ -31,7 +31,7 @@ const update = (employee, callback) => {
     var _a;
     // eslint-disable-next-line max-len
     const queryString = "UPDATE employee SET name=?, age=?, timeSlot=? WHERE uid=?";
-    mysql_connector_1.db.query(queryString, [employee.name, employee.age, (_a = employee.timeSlot) === null || _a === void 0 ? void 0 : _a.uid, employee.uid], (err, result) => {
+    mysql_connector_1.db.query(queryString, [employee.name, employee.age, (_a = employee.timeSlot) === null || _a === void 0 ? void 0 : _a.uid, employee.uid], (err) => {
         if (err) {
             callback(err);
         }
@@ -41,7 +41,7 @@ const update = (employee, callback) => {
 exports.update = update;
 const remove = (uid, callback) => {
     const queryString = "DELETE From employee WHERE uid=?";
-    mysql_connector_1.db.query(queryString, uid, (err, result) => {
+    mysql_connector_1.db.query(queryString, uid, (err) => {
         if (err) {
             callback(err);
         }
@@ -53,8 +53,7 @@ exports.remove = remove;
 const assignToSlot = (assignEmployee, callback) => {
     const queryString = "UPDATE employee SET timeSlot=? WHERE uid=?";
     // eslint-disable-next-line max-len
-    console.log(assignEmployee);
-    mysql_connector_1.db.query(queryString, [assignEmployee.timeSlotId, assignEmployee.employeeId], (err, result) => {
+    mysql_connector_1.db.query(queryString, [assignEmployee.timeSlotId, assignEmployee.employeeId], (err) => {
         if (err) {
             callback(err);
         }
