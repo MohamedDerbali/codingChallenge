@@ -50,7 +50,6 @@ employeeRouter.put("/edit/:id", async (req: Request, res: Response) => {
 
 employeeRouter.put("/assign", async (req: Request, res: Response) => {
   const data: AssignEmployee = req.body;
-  console.log(data);
   model.assignToSlot(data, (err: Error) => {
     if (err) {
       return res.status(500).json({message: err.message});

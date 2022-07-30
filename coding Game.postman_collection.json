@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "5d7364e3-e562-441b-ac78-7fd4233b8cf5",
+		"name": "coding Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9690966"
+	},
+	"item": [
+		{
+			"name": "timeSlot",
+			"item": [
+				{
+					"name": "get time slots",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3000/timeSlot"
+					},
+					"response": []
+				},
+				{
+					"name": "add time slot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"time\": 50, \r\n    \"description\": \"time slot\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/timeSlot"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit time slot",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"time\": 50, \r\n    \"description\": \"hello slot\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/timeSlot/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete time slot",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:3000/timeSlot/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "get employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3000/timeSlot"
+					},
+					"response": []
+				},
+				{
+					"name": "add employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"dlzkdklzjl\",\r\n    \"age\": 20,\r\n    \"timeSlot\": {\r\n        \"uid\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/employee"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"hello mohamed\",\r\n    \"age\": 25,\r\n    \"timeSlot\": {\r\n        \"uid\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/employee/edit/4"
+					},
+					"response": []
+				},
+				{
+					"name": "assign employee to slot",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employeeId\": 2,\r\n  \"timeSlotId\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/employee/assign"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:3000/employee/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
